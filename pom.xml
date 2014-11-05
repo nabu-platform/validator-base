@@ -22,7 +22,6 @@
 						<Bundle-Name>${project.artifactId}</Bundle-Name>
 						<Bundle-Version>1.0.0</Bundle-Version>
 						<Private-Package>be.nabu.libs.converter</Private-Package>
-						<Service-Component>OSGI-INF/*.xml</Service-Component>
 					</instructions>
 				</configuration>
 			</plugin>
