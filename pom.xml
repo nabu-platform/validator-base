@@ -4,7 +4,7 @@
 	<groupId>be.nabu.libs.validator</groupId>
 	<artifactId>validator-base</artifactId>
 	<packaging>bundle</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>validator-base</name>
 	<url>http://nabu.be</url>
 	<description>A few basic validators</description>
