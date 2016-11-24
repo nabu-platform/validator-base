@@ -30,9 +30,9 @@ public class EnumerationValidator<T> implements Validator<T> {
 		List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
 		if (instance != null) {
 			if (!values.isEmpty() && whitelist && !values.contains(instance))
-				messages.add(new ValidationMessage(Severity.ERROR, "The value did not match any of the enumerated options"));
+				messages.add(new ValidationMessage(Severity.ERROR, "The value '" + instance + "' did not match any of the enumerated options: " + values));
 			else if (!values.isEmpty() && !whitelist && values.contains(instance))
-				messages.add(new ValidationMessage(Severity.ERROR, "The value matched one of the disallowed options"));
+				messages.add(new ValidationMessage(Severity.ERROR, "The value '" + instance + "' matched one of the disallowed options"));
 		}
 		return messages;
 	}
