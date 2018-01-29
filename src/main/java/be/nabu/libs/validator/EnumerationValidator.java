@@ -25,10 +25,16 @@ public class EnumerationValidator<T> implements Validator<T> {
 		this.values = new HashSet<T>(values);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<ValidationMessage> validate(T instance) {
 		List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
 		if (instance != null) {
+			// for some vague reason lost to time, the enum simple type converts the enum values to strings
+			// we don't have access to the full converter framework here but we can do that basic conversion
+			if (String.class.isAssignableFrom(getValueClass()) && !(instance instanceof String)) {
+				instance = (T) instance.toString();
+			}
 			if (!values.isEmpty() && whitelist && !values.contains(instance))
 				messages.add(new ValidationMessage(Severity.ERROR, "The value '" + instance + "' did not match any of the enumerated options: " + values));
 			else if (!values.isEmpty() && !whitelist && values.contains(instance))
