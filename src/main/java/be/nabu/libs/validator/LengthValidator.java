@@ -24,10 +24,15 @@ public class LengthValidator implements Validator<CharSequence> {
 				messages.add(new ValidationMessage(Severity.WARNING, "The string is null, its length can not be validated"));
 			else {
 				Integer length = instance.length();
-				if (min != null && length.compareTo(min) < 0)
-					messages.add(new ValidationMessage(Severity.ERROR, "The string '" + instance + "' is shorter than allowed: " + instance.length() + " < " + min));
-				if (max != null && length.compareTo(max) > 0)
-					messages.add(new ValidationMessage(Severity.ERROR, "The string '" + instance + "' is longer than allowed: " + instance.length() + " > " + max));
+				if (min != null && max != null && min == max && length != min) {
+					messages.add(new ValidationMessage(Severity.ERROR, "The string '" + instance + "' is not the allowed length", "length", null));
+				}
+				else {
+					if (min != null && length.compareTo(min) < 0)
+						messages.add(new ValidationMessage(Severity.ERROR, "The string '" + instance + "' is shorter than allowed: " + instance.length() + " < " + min, "minLength", null));
+					if (max != null && length.compareTo(max) > 0)
+						messages.add(new ValidationMessage(Severity.ERROR, "The string '" + instance + "' is longer than allowed: " + instance.length() + " > " + max, "maxLength", null));
+				}
 			}
 		}
 		return messages;

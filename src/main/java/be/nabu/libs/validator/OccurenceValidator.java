@@ -22,9 +22,9 @@ public class OccurenceValidator<T extends Collection> implements Validator<T> {
 	public List<ValidationMessage> validate(T instance) {
 		List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
 		if (instance.size() < getMinOccurs())
-			messages.add(new ValidationMessage(Severity.ERROR, "Collection has " + instance.size() + " values, but expects at least " + getMinOccurs()));
+			messages.add(new ValidationMessage(Severity.ERROR, "Collection has " + instance.size() + " values, but expects at least " + getMinOccurs(), "minItems", null));
 		if (getMaxOccurs() != 0 && instance.size() > getMaxOccurs())
-			messages.add(new ValidationMessage(Severity.ERROR, "Collection has " + instance.size() + " values, but only " + getMaxOccurs() + " are allowed"));
+			messages.add(new ValidationMessage(Severity.ERROR, "Collection has " + instance.size() + " values, but only " + getMaxOccurs() + " are allowed", "maxItems", null));
 		return messages;
 	}
 

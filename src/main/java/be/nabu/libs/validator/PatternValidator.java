@@ -22,7 +22,7 @@ public class PatternValidator implements Validator<CharSequence> {
 			if (instance == null)
 				messages.add(new ValidationMessage(Severity.WARNING, "The string is null, pattern can not be validated"));
 			else if (!instance.toString().matches(getPattern()))
-				messages.add(new ValidationMessage(Severity.ERROR, "The string '" + instance + "' does not match the pattern '" + getPattern() + "'"));
+				messages.add(new ValidationMessage(Severity.ERROR, "The string '" + instance + "' does not match the pattern '" + getPattern() + "'", "pattern", null));
 		}
 		return messages;
 	}

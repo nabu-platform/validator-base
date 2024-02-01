@@ -21,7 +21,7 @@ public class TypeValidator<T> implements Validator<T> {
 		if (instance == null)
 			messages.add(new ValidationMessage(Severity.WARNING, "The object is null, the class can not be validated"));
 		else if (!type.isAssignableFrom(instance.getClass()))
-			messages.add(new ValidationMessage(Severity.ERROR, "The object is of type " + instance.getClass().getName() + " not of the expected type " + type.getName()));
+			messages.add(new ValidationMessage(Severity.ERROR, "The object is of type " + instance.getClass().getName() + " not of the expected type " + type.getName(), "type", null));
 		return messages;
 	}
 

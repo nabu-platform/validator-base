@@ -19,7 +19,7 @@ public class NillableValidator implements Validator<Object> {
 	public List<ValidationMessage> validate(Object instance) {
 		List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
 		if (isNillable != null && !isNillable && instance == null)
-			messages.add(new ValidationMessage(Severity.ERROR, "Object is null, this is not allowed"));
+			messages.add(new ValidationMessage(Severity.ERROR, "Object is null, this is not allowed", "required", null));
 		return messages;
 	}
 

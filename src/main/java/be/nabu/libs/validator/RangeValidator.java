@@ -31,12 +31,12 @@ public class RangeValidator<T extends Comparable> implements Validator<T> {
 				if (min != null) {
 					int result = instance.compareTo(min);
 					if ((minInclusive && result < 0) || (!minInclusive && result <= 0))
-						messages.add(new ValidationMessage(Severity.ERROR, "The object is smaller than allowed", instance + " < " + min));
+						messages.add(new ValidationMessage(Severity.ERROR, "The object is smaller than allowed", "minimum", instance + " < " + min));
 				}
 				if (max != null) {
 					int result = instance.compareTo(max);
 					if ((maxInclusive && result > 0) || (!maxInclusive && result >= 0))
-						messages.add(new ValidationMessage(Severity.ERROR, "The object is larger than allowed", instance + " > " + max));
+						messages.add(new ValidationMessage(Severity.ERROR, "The object is larger than allowed", "maximum", instance + " > " + max));
 				}
 			}
 		}
