@@ -3,7 +3,7 @@
 	<groupId>be.nabu.libs.validator</groupId>
 	<artifactId>validator-base</artifactId>
 	<packaging>jar</packaging>
-	<version>1.4</version>
+	<version>1.5-SNAPSHOT</version>
 	<name>validator-base</name>
 	<url>http://nabu.be</url>
 	<description>A few basic validators</description>
