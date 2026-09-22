@@ -31,6 +31,10 @@ public class TestValidators extends TestCase {
 		testCorrect(new LengthValidator(null, 6), "short");
 		testInCorrect(new LengthValidator(null, 6), "not short enough");
 		testCorrect(new LengthValidator(2, 4), "yup");
+
+		String exactValue = new String(new char[1000]).replace('\0', '0');
+		Integer exactLength = exactValue.length();
+		testCorrect(new LengthValidator(exactLength, exactLength), exactValue);
 	}
 	
 	protected <T> void testCorrect(Validator<T> validator, T instance) {
